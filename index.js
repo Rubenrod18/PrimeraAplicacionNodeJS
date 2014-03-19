@@ -1,11 +1,12 @@
-var server = require('./server');
-var router = require('./router');
-var requestHandlers = require('./requestHandlers');
+var server = require('./server'); // Llamada al módulo server
+var router = require('./router'); // Llama al módulo router
+var requestHandlers = require('./requestHandlers'); // Llama al módulo requestHandlers
 
-var handle = {};
-handle['/'] = requestHandlers.start;
-handle['/start'] = requestHandlers.start;
-handle['/upload'] = requestHandlers.upload;
-handle['/mostrar'] = requestHandlers.mostrar;
+// Crearemos una variable para maneras las diversas peticiones HTTP
+var handle = {}; // Object JSON
+handle['/'] = requestHandlers.start; // Para la ruta localhost:8888/
+handle['/start'] = requestHandlers.start; // Para la ruta localhost:8888/start
+handle['/upload'] = requestHandlers.upload; // Para la ruta localhost:8888/upload
+handle['/show'] = requestHandlers.show; // Para la ruta localhost:8888/show
 
-server.start(router.route, handle);
+server.start(router.route, handle); // Arrancamos el servidor
